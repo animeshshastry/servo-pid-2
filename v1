@@ -23,6 +23,6 @@ void loop()
 {
   Input = servo1.read();
   myPID.Compute();
-  
-  servo1.write(output);
+  Serial.println(Output);
+  servo1.write(Output);
 }
