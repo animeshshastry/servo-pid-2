@@ -1,0 +1,27 @@
+#include<PID_v1.h>
+#include <Servo.h>
+
+double Setpoint, Input, Output;
+
+Servo servo1;
+PID myPID(&Input, &Output, &Setpoint,2,5,1, REVERSE);
+
+void setup()
+{
+  servo1.attach(9);
+  servo1.write(180);
+  Input = servo1.read();
+  Setpoint = 0.0;
+
+  //turn the PID on
+  myPID.SetMode(AUTOMATIC);
+  myPID.SetOutputLimits(-50,50);
+}
+
+void loop()
+{
+  Input = servo1.read();
+  myPID.Compute();
+  
+  servo1.write(Input+output*sampleTime);
+}
