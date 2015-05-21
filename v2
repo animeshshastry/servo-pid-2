@@ -15,7 +15,7 @@ void setup()
 
   //turn the PID on
   myPID.SetMode(AUTOMATIC);
-  myPID.SetOutputLimits(-50,50);
+  myPID.SetOutputLimits(-500,500);
 }
 
 void loop()
